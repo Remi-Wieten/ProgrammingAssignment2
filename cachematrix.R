@@ -7,7 +7,7 @@
 
 makeCacheMatrix <- function(x = matrix()) {             
         s <- NULL                                       ## makeCacheMatrix first sets the solve value s to NULL.
-        set <- function(y) {                            ## makeCacheMatrix then creates the first element of the list: a function that can simply set the value of the matrix y.
+        set <- function(y) {                            ## makeCacheMatrix then creates the first element of the list: a function that can simply set the value of the matrix to y.
                 x <<- y
                 s <<- NULL                      
         }
@@ -29,7 +29,7 @@ cacheSolve <- function(x, ...) {                        ## If you give this func
                 return(s)
         }
         data <- x$get()                                 ## If the inverse has not yet been calculated before (or if it has not yet been cached), 
-        s <- solve(data, ...)                           ## cacheSolve calculates the inverse of the matrix x (that was used as input for makeCacheMatrix) 
+        s <- solve(data, ...)                           ## cacheSolve calculates the inverse of the matrix x (that was used as input for makeCacheMatrix), 
         x$setsolve(s)                                   ## caches it (i.e. sets s to solve(x)),
         s                                               ## and returns the inverse matrix of x.
 }
